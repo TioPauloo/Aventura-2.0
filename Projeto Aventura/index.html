@@ -23,16 +23,14 @@
             } else if (caminho === 'direita') {
                 historia.innerHTML = 'Você escolheu o caminho da vila e encontrou um cavaleiro. Ele desafia você para um duelo. Aceite o duelo ou tente persuadi-lo a se tornar um aliado.';
             }
-        }
-
-        function resolverEnigma(resposta) {
+        }   
+    <function> resolverEnigma(resposta) {
             let historia = document.getElementById('historia');
             if (resposta === 'confianca') {
                 historia.innerHTML = 'Você respondeu corretamente e a bruxa fica contente com a resposta. Ela lhe dá uma poção mágica que faz qualquer oponente dormir em um sono profundo. Continue sua jornada ou procure por mais aliados na floresta.';
-            } else {
-                historia.innerHTML = 'Você respondeu incorretamente. A bruxa o faz dormir em um sono profundo do qual você nunca acordará. Você morreu.';
-            }
-        }
+ else historia.innerHTML = 'Você respondeu incorretamente. A bruxa o faz dormir em um sono profundo do qual você nunca acordará. Você morreu.';
+            
+        
 
         function lutarComBruxa() {
             let historia = document.getElementById('historia');
