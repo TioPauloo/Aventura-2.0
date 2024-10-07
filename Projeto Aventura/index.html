@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aventura Interativa: One For All</title>
+</head>
+<body>
+    <h1>Aventura Interativa: One For All</h1>
+    <p id="historia">Voce e um plebeu em um mundo cheio de criaturas sobrenaturais. Sua missao e encontrar a espada encantada "One For All". À sua frente, há dois caminhos. Um à esquerda que leva a uma floresta densa, e outro à direita que leva a uma vila misteriosa.</p>
+    <button onclick="escolherCaminho(esquerda)">Escolher o caminho da floresta</button>
+    <button onclick="escolherCaminho(direita)">Escolher o caminho da vila</button>
+
+    <script>
+        function escolherCaminho(caminho) {
+            let historia = document.getElementById('historia');
+            if (caminho === esquerda) {
+                historia.innerHTML = Voce escolheu o caminho da floresta e encontrou uma bruxa. Ela oferece um enigma. Resolva o enigma ou lute contra a bruxa.';
+                historia.innerHTML += <br>Dois figurantes tentam resolver o enigma antes de voce, mas acabam errando e perdendo suas vidas.';
+                historia.innerHTML += '<br>Enigma da Bruxa: "O que pode ser quebrada, mas nunca segurada?"';
+                historia.innerHTML +=<br><button onclick="resolverEnigma('confianca)">A confianca</button>';
+                historia.innerHTML += '<br><button onclick="resolverEnigma(\'coracao\')">O coracao</button>';
+                historia.innerHTML += '<br><button onclick="resolverEnigma(\'promessa\')">A promessa</button>';
+                historia.innerHTML += '<br><button onclick="lutarComBruxa()">Lutar contra a bruxa</button>';
+            } else if (caminho === 'direita') {
+                historia.innerHTML = 'Você escolheu o caminho da vila e encontrou um cavaleiro. Ele desafia você para um duelo. Aceite o duelo ou tente persuadi-lo a se tornar um aliado.';
+            }
+        }
+
+        function resolverEnigma(resposta) {
+            let historia = document.getElementById('historia');
+            if (resposta === 'confianca') {
+                historia.innerHTML = 'Você respondeu corretamente e a bruxa fica contente com a resposta. Ela lhe dá uma poção mágica que faz qualquer oponente dormir em um sono profundo. Continue sua jornada ou procure por mais aliados na floresta.';
+            } else {
+                historia.innerHTML = 'Você respondeu incorretamente. A bruxa o faz dormir em um sono profundo do qual você nunca acordará. Você morreu.';
+            }
+        }
+
+        function lutarComBruxa() {
+            let historia = document.getElementById('historia');
+            historia.innerHTML = 'Você pegou uma espada de ferro comum que estava no chão, deixada por um dos figurantes. A bruxa, vendo sua determinação, decide testar seu conhecimento com enigmas durante a batalha.';
+            historia.innerHTML += '<br>Enigma 1: "O que dá o poder de atravessar paredes?"';
+            historia.innerHTML += '<br><button onclick="resolverEnigmaLuta(\'porta\')">A porta</button>';
+            historia.innerHTML += '<br><button onclick="resolverEnigmaLuta(\'fantasma\')">O fantasma</button>';
+            historia.innerHTML += '<br><button onclick="resolverEnigmaLuta(\'sombras\')">As sombras</button>';
+        }
+
+        function resolverEnigmaLuta(resposta) {
+            let historia = document.getElementById('historia');
+            if (resposta === 'porta') {
+                historia.innerHTML = 'Você respondeu corretamente! A bruxa lança outro enigma.';
+                historia.innerHTML += '<br>Enigma 2: "Se há três, você tem três, Se há duas, você tem duas, Mas se há uma, você não tem nenhuma. O que é?"';
+                historia.innerHTML += '<br><button onclick="resolverEnigmaLuta2(\'opcao\')">Opção</button>';
+                historia.innerHTML += '<br><button onclick="resolverEnigmaLuta2(\'maos\')">Mãos</button>';
+                historia.innerHTML += '<br><button onclick="resolverEnigmaLuta2(\'olhos\')">Olhos</button>';
+            } else {
+                historia.innerHTML = 'Você respondeu incorretamente e perdeu sua vida na batalha contra a bruxa.';
+            }
+        }
+
+        function resolverEnigmaLuta2(resposta) {
+            let historia = document.getElementById('historia');
+            if (resposta === 'opcao') {
+                historia.innerHTML = 'Você respondeu corretamente novamente! A bruxa lança o último enigma.';
+                historia.innerHTML += '<br>Enigma 3: "Faço parte de tudo e estou no final do espaço e do tempo. Quem sou eu?"';
+                historia.innerHTML += '<br><button onclick="resolverEnigmaLuta3(\'letraO\')">A letra O</button>';
+                historia.innerHTML += '<br><button onclick="resolverEnigmaLuta3(\'universo\')">O universo</button>';
+                historia.innerHTML += '<br><button onclick="resolverEnigmaLuta3(\'eternidade\')">A eternidade</button>';
+            } else {
+                historia.innerHTML = 'Você respondeu incorretamente e perdeu sua vida na batalha contra a bruxa.';
+            }
+        }
+
+        function resolverEnigmaLuta3(resposta) {
+            let historia = document.getElementById('historia');
+            if (resposta === 'letraO') {
+                historia.innerHTML = 'Você respondeu corretamente todos os enigmas! A bruxa, impressionada, concede a você uma poção mágica que faz qualquer oponente dormir em um sono profundo. Continue sua jornada ou explore mais a floresta.';
+            } else {
+                historia.innerHTML = 'Você respondeu incorretamente e perdeu sua vida na batalha contra a bruxa.';
+            }
+        }
+
+       function interagirComCavaleiro() {
+    let escolha = prompt("Escolha uma opção:\n1. Elogiar os óculos do cavaleiro\n2. Elogiar por ele seguir o caminho de Cavaleiro");
+    
+    if (escolha === "1") {
+        console.log("O cavaleiro fica feliz e levemente constrangido, e aceita ir com você na missão. Ele admira o gosto perspicaz do plebeu.");
+        // lógica para o cavaleiro se juntar à missão
+        juntarCavaleiro();
+    } else if (escolha === "2") {
+        console.log("O cavaleiro lembra que seu irmão mais velho lutou bravamente contra um assassino, quase perdeu a vida e ficou paralisado da cintura para baixo. Com ódio, jura vingar seu irmão e escolhe o caminho de Cavaleiro para seguir. Ele decide não se juntar ao plebeu.");
+        // lógica para o cavaleiro não se juntar à missão
+        naoJuntarCavaleiro();
+    } else {
+        console.log("Escolha inválida. Tente novamente.");
+    }
+}
+
+function juntarCavaleiro() {
+    // lógica para o cavaleiro se juntar à missão
+    console.log("O cavaleiro se junta à missão!");
+}
+
+function naoJuntarCavaleiro() {
+    // lógica para o cavaleiro não se juntar à missão
+    console.log("O cavaleiro não se junta à missão.");
+}
+
+        function encontrarGuerreiro() {
+            let historia = document.getElementById('historia');
+            historia.innerHTML = 'Você encontrou um bravo guerreiro domador de dragões, conhecido por sua personalidade explosiva e habilidades incríveis. Ele nunca perdeu uma única briga. Você pode lutar contra ele
+function encontrarBravoGuerreiro() {
+    let escolha = prompt("Você encontrou o Bravo Guerreiro. Escolha uma opção:\n1. Duelar contra o Bravo Guerreiro\n2. Persuadir o Bravo Guerreiro");
+
+    if (escolha === "1") {
+        duelarBravoGuerreiro();
+    } else if (escolha === "2") {
+        persuadirBravoGuerreiro();
+    } else {
+        console.log("Escolha inválida. Tente novamente.");
+    }
+}
+
+function duelarBravoGuerreiro() {
+    console.log("Você escolheu duelar contra o Bravo Guerreiro. Ele luta com uma enorme e afiada lança de aço.");
+
+    // Verificar se o cavaleiro está na missão ou se o humano plebeu tem a espada do figurante
+    let armaHumano = "sem arma";
+    if (cavaleiroNaMissao) {
+        armaHumano = "espada do cavaleiro";
+    } else if (humanoPlebeuCaminhoBruxa) {
+        armaHumano = "espada do figurante";
+    }
+
+    let perguntas = [
+        {
+            pergunta: "O que pertence a você mas todos usam?",
+            respostas: ["Sua sombra", "Seu nome", "Seu tempo"],
+            correta: 1
+        },
+        {
+            pergunta: "O que desaparece simplesmente quando seu nome é falado?",
+            respostas: ["O eco", "A escuridão", "O silêncio"],
+            correta: 2
+        },
+        {
+            pergunta: "O que não pode queimar no fogo nem afundar na água?",
+            respostas: ["A madeira", "O gelo", "A pedra"],
+            correta: 1
+        }
+    ];
+
+    for (let i = 0; i < perguntas.length; i++) {
+        let pergunta = perguntas[i];
+        let escolha = prompt(Pergunta ${i + 1}: ${pergunta.pergunta}\n1. ${pergunta.respostas[0]}\n2. ${pergunta.respostas[1]}\n3. ${pergunta.respostas[2]});
+        if (escolha - 1 === pergunta.correta) {
+            console.log("Resposta correta! Você golpeou o Bravo Guerreiro.");
+        } else {
+            console.log("Resposta incorreta! O Bravo Guerreiro te golpeou. Você se sente destruído após a batalha e não consegue continuar. Game Over.");
+            return; // Game Over
+        }
+    }
+
+    console.log("Você venceu o duelo!");
+}
+
+function persuadirBravoGuerreiro() {
+    let escolha = prompt("Escolha uma opção:\n1. Dizer que o Bravo Guerreiro não é capaz de ajudar a encontrar a espada\n2. Dizer que ele é forte e poderoso e com certeza irá achar a espada");
+
+    if (escolha === "1") {
+        console.log("O Bravo Guerreiro se sente inferior e aceita a missão para provar que é melhor que você.");
+        // lógica para o Bravo Guerreiro se juntar à missão
+        juntarBravoGuerreiro();
+    } else if (escolha === "2") {
+        console.log("O Bravo Guerreiro se sente subestimado e grita ferozmente contra você. Ele decide não ir com você.");
+        // lógica para o Bravo Guerreiro não se juntar à missão
+        naoJuntarBravoGuerreiro();
+    } else {
+        console.log("Escolha inválida. Tente novamente.");
+    }
+}
+
+function juntarBravoGuerreiro() {
+    // lógica para o Bravo Guerreiro se juntar à missão
+    console.log("O Bravo Guerreiro se junta à missão!");
+}
+
+function naoJuntarBravoGuerreiro() {
+    // lógica para o Bravo Guerreiro não se juntar à missão
+    console.log("O Bravo Guerreiro não se junta à missão.");
+}
+
+// Variáveis de controle para verificar se o cavaleiro está na missão ou se o humano plebeu foi no caminho da bruxa
+let cavaleiroNaMissao = false;
+let humanoPlebeuCaminhoBruxa = true;
+
+// Exemplo de chamada da função:
+encontrarBravoGuerreiro(); ou tentar persuadi-lo a se tornar seu aliado.';
+        }
+
+        function encontrarPrincipe() {
+            let historia = document.getElementById('historia');
+            historia.innerHTML = 'Você encontrou um jovem príncipe mago, capaz de controlar os elementos de fogo e gelo. Sua missão é encontrar o famoso espadachim "Toshinori Yagi", dono da espada "One For All", que desapareceu misteriosamente.';
+function encontrarPrincipe() {
+    let historia = document.getElementById('historia');
+    historia.innerHTML = 'Você encontrou um jovem príncipe mago, capaz de controlar os elementos de fogo e gelo. Ele não é hostil, mas é desconfiado e reservado. "Por que você está em um caminho tão perigoso?" ele pergunta.';
+    
+    let escolha = prompt("Escolha uma opção:\n1. Dizer a verdade: Estou procurando a espada 'One For All' que era do espadachim 'Toshinori Yagi'.\n2. Mentir: Estou vagando pela floresta junto com meus companheiros.");
+    if (escolha === "1") {
+        dizerVerdade();
+    } else if (escolha === "2") {
+        dizerMentira();
+    } else {
+        console.log("Escolha inválida. Tente novamente.");
+    }
+}
+
+function dizerVerdade() {
+    console.log("Você disse a verdade: Está procurando a espada 'One For All' que era do espadachim 'Toshinori Yagi'.");
+    console.log("O jovem príncipe mago reconhece sua honestidade e decide se juntar à sua missão.");
+    juntarPrincipe();
+}
+
+function dizerMentira() {
+    console.log("Você mentiu: Disse que está vagando pela floresta junto com seus companheiros.");
+    console.log("O jovem príncipe mago reconhece sua mentira e não permitirá que você passe. Ele congela você e seus companheiros, o Bravo Guerreiro e o Cavaleiro. Game Over.");
+    congelarCompanheiros();
+}
+
+function juntarPrincipe() {
+    console.log("O príncipe mago se junta à sua missão, trazendo seus poderes de fogo e gelo para ajudá-lo.");
+    seguirCaminho();
+}
+
+function congelarCompanheiros() {
+    console.log("Você e seus companheiros foram congelados pelo príncipe mago.");
+}
+        }
+
+       
+function encontrarAlquimista() {
+    let historia = document.getElementById('historia');
+    historia.innerHTML = 'Você encontrou uma alquimista aprendiz, amável e desastrada, vagando na direção contrária do grupo. Ela derruba suas poções acidentalmente. Você decide ajudar? \n1. Sim\n2. Não';
+    
+    let escolha = prompt("Escolha uma opção:\n1. Ajudar a alquimista\n2. Não ajudar e seguir em frente.");
+    if (escolha === "1") {
+        ajudarAlquimista();
+    } else if (escolha === "2") {
+        naoAjudarAlquimista();
+    } else {
+        console.log("Escolha inválida. Tente novamente.");
+    }
+}
+
+function ajudarAlquimista() {
+    console.log("Você ajudou a alquimista aprendiz a juntar suas poções. Ela fica imensamente agradecida e decide se juntar ao grupo.");
+    juntarAlquimista();
+}
+
+function naoAjudarAlquimista() {
+    console.log("Você escolheu não ajudar a alquimista e seguiu em frente na sua jornada.");
+    seguirCaminho();
+}
+
+function juntarAlquimista() {
+    console.log("A alquimista aprendiz se junta ao grupo, pronta para ajudar e, possivelmente, atrapalhar.");
+}
+
+function seguirCaminho() {
+    console.log("O grupo continua sua jornada.");
+}
+function subirMontanha() {
+    console.log("O grupo começou a subir a montanha. A cada passo, o ar ficava mais frio e tenso. O ambiente parecia sombrio e assustador.");
+    console.log("Ao chegarem no topo da colina, se deparam com a estátua de um homem magricelo feito de pedra. Apesar do sofrimento notável em seu rosto, ele está segurando uma espada grande com aparência poderosa.");
+    console.log("O humano plebeu se aproxima devagar e percebe que aquela era a espada 'One For All' que tanto almejava encontrar.");
+
+    console.log("Antes que pudesse tocar na espada, surge das sombras uma risada maligna. Uma figura alta, com braços fortes envoltos em uma névoa vermelha, aparece. Ao olhar sua face, o humano plebeu percebe que ele não tem olhos nem nariz, apenas um sorriso maléfico.");
+
+    let escolha = prompt("Escolha uma opção:\n1. Conversar com a figura alta\n2. Atacar a figura alta");
+    if (escolha === "1") {
+        dialogarFigura();
+    } else if (escolha === "2") {
+        atacarFigura();
+    } else {
+        console.log("Escolha inválida. Tente novamente.");
+    }
+}
+
+function dialogarFigura() {
+    console.log("Você decide conversar com a figura alta. A figura ri e nega seu pedido, dizendo: 'Aquela espada é a única que pode me ferir. Sem ela no caminho, sou invencível. Transformei o lendário espadachim Toshinori Yagi em pedra com meus feitiços.'");
+    console.log("O humano plebeu, enojado com suas palavras, decide atacar.");
+    atacarFigura();
+}
+
+function atacarFigura() {
+    console.log("Você decide atacar a figura alta. A figura sorri malignamente e, com um movimento rápido, atravessa você com inúmeras garras afiadas. Você morre. Game Over.");
+}
+function iniciarLuta() {
+    console.log("A luta contra a figura alta começa!");
+
+    let vidaFigura = 100;
+    let vidaHumano = 100;
+    let vidaCompanheiros = [80, 120, 90, 70];
+
+    while (vidaFigura > 0 && vidaHumano > 0 && vidaCompanheiros.some(vida => vida > 0)) {
+        let ataqueHumano = Math.floor(Math.random() * 20) + 1;
+        let ataqueCompanheiros = vidaCompanheiros.map((vida, index) => Math.floor(Math.random() * 10) + 5);
+        let ataqueTotalCompanheiros = ataqueCompanheiros.reduce((acc, val) => acc + val, 0);
+        let ataqueFigura = Math.floor(Math.random() * 20) + 1;
+
+        vidaFigura -= ataqueHumano + ataqueTotalCompanheiros;
+        vidaHumano -= ataqueFigura;
+
+        console.log(Você atacou a figura e causou ${ataqueHumano} de dano. Seus companheiros causaram um total de ${ataqueTotalCompanheiros} de dano. Vida da figura: ${vidaFigura});
+        console.log(A figura atacou você e causou ${ataqueFigura} de dano. Sua vida: ${vidaHumano});
+    }
+
+    if (vidaFigura <= 0) {
+        console.log("Parabéns! Você e seus companheiros derrotaram a figura alta e conquistaram a espada 'One For All'!");
+        finalizarHistoria();
+    } else if (vidaHumano <= 0) {
+        console.log("Você foi derrotado pela figura alta. A jornada termina aqui.");
+    }
+    }
+
+function finalizarHistoria() 
+    console.log("O grupo fica aliviado com a vitória.");
+    console.log("O humano plebeu pega a espada 'One For All' das mãos da estátua.");
+    console.log("Assim que a espada é retirada, a estátua se quebra e se reduz a pó.");
+    console.log("A poeira é levada pelo vento, e o sol começa a brilhar calorosamente.");
+    console.log("A montanha, antes sombria, se transforma em um lugar agradável e acolhedor.");
+    console.log("E assim termina a historia.")
+    </script>
+</body>
+</html>
